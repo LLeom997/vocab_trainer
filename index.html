@@ -354,8 +354,8 @@ body,button,input,select,textarea{font-family:"Google Sans Flex","Google Sans","
 .mainNavigation.isCollapsed{display:none}
 @media(max-width:700px){.mainNavigation{display:grid;grid-template-columns:1fr;gap:7px}.navGroup{align-items:stretch}.navSettings{margin-left:0}.appHeader{position:relative}.navItem{font-size:12px}}
 </style>
-<script type="text/javascript" nonce="f10ba15300a342c7b2e89399132" src="//local.adguard.org?ts=1795798544959&amp;type=content-script&amp;dmn=chatgpt.com&amp;app=msedge.exe&amp;css=1&amp;js=1&amp;gcss=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script>
-<script type="text/javascript" nonce="f10ba15300a342c7b2e89399132" src="//local.adguard.org?ts=1795798544959&amp;name=AdGuard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script id="navigation-shortcuts-and-actions">
+<script type="text/javascript" nonce="f10ba15300a342c7b2e89399132" src="//local.adguard.org?ts=1795799826837&amp;type=content-script&amp;dmn=chatgpt.com&amp;app=msedge.exe&amp;css=1&amp;js=1&amp;gcss=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script>
+<script type="text/javascript" nonce="f10ba15300a342c7b2e89399132" src="//local.adguard.org?ts=1795799826837&amp;name=AdGuard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script id="navigation-shortcuts-and-actions">
 document.addEventListener('DOMContentLoaded',()=>{
  const nav=document.getElementById('mainNavigation'),toggle=document.getElementById('navToggle');
  toggle?.addEventListener('click',()=>{
@@ -1335,13 +1335,130 @@ main>#drawerShade.drawerShade.open,#drawerShade.open{display:block!important}
 #drawer.collapsed{width:min(410px,calc(100vw - 30px))!important}
 #drawer.collapsed .drawerHead>div:first-child,#drawer.collapsed .drawerSection,#drawer.collapsed .drawerFooter{display:block!important}
 </style>
+
+<style id="question-scale-and-header-actions-final">
+/* Large, readable Japanese word layers in the actual question card. */
+#quizPanel>.prompt .jpChoice{
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:clamp(5px,1.1vh,13px)!important;width:100%!important;line-height:1.15!important;
+}
+#quizPanel>.prompt .quizLayerKanji{
+  display:block!important;font-family:"Noto Sans JP","Google Sans Flex",sans-serif!important;
+  font-size:clamp(64px,6.5vw,112px)!important;font-weight:650!important;line-height:1.16!important;
+  letter-spacing:.025em!important;color:#172033!important;overflow-wrap:anywhere!important;
+}
+#quizPanel>.prompt .quizLayerKana{
+  display:block!important;font-family:"Noto Sans JP","Google Sans Flex",sans-serif!important;
+  font-size:clamp(31px,3vw,48px)!important;font-weight:550!important;line-height:1.2!important;
+  letter-spacing:.035em!important;color:#35506f!important;
+}
+#quizPanel>.prompt .quizLayerRomaji{
+  display:block!important;font-family:"Google Sans Flex","Google Sans",sans-serif!important;
+  font-size:clamp(23px,2.1vw,34px)!important;font-weight:500!important;line-height:1.25!important;
+  letter-spacing:.055em!important;color:#68778d!important;
+}
+/* Keep choice cards legible, but deliberately subordinate to the question itself. */
+#quizPanel>#choices .quizLayerKanji{font-size:clamp(21px,1.7vw,28px)!important;line-height:1.25!important}
+#quizPanel>#choices .quizLayerKana{font-size:clamp(15px,1.15vw,19px)!important;line-height:1.25!important;color:#53657c!important}
+#quizPanel>#choices .quizLayerRomaji{font-size:clamp(13px,1vw,16px)!important;line-height:1.25!important;color:#78869a!important}
+
+/* Brand on the left; all quick actions and the sidebar trigger form one right-aligned toolbar. */
+.appHeader{position:relative!important;overflow:visible!important}
+.appHeader .navTop{
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:18px!important;min-height:68px!important;padding:11px 16px!important;
+}
+.appHeader .brandBlock{flex:1 1 auto!important;min-width:0!important}
+.appHeader .brandBlock .brand{white-space:nowrap!important}
+.appHeader .headerActions{
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  flex:0 0 auto!important;gap:9px!important;margin-left:auto!important;
+}
+.appHeader .headerAction,.appHeader #navToggle{
+  position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 44px!important;width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;
+  margin:0!important;padding:0!important;border:1px solid #d8e1ed!important;border-radius:13px!important;
+  background:#fff!important;color:#40516a!important;box-shadow:0 2px 5px rgba(16,24,40,.045),0 5px 14px rgba(16,24,40,.06)!important;
+  cursor:pointer!important;transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease!important;
+}
+.appHeader .headerAction svg,.appHeader #navToggle svg{
+  display:block!important;width:21px!important;height:21px!important;fill:none!important;stroke:currentColor!important;
+  stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+.appHeader .headerAction.headerStart{background:#1967d2!important;border-color:#1967d2!important;color:#fff!important}
+.appHeader .headerAction:hover,.appHeader #navToggle:hover{
+  transform:translateY(-2px)!important;box-shadow:0 5px 10px rgba(16,24,40,.08),0 10px 22px rgba(16,24,40,.09)!important;
+  background:#f4f8ff!important;border-color:#b9cbe3!important;
+}
+.appHeader .headerAction.headerStart:hover{background:#1558b0!important;border-color:#1558b0!important}
+.appHeader #navToggle::before{content:none!important;display:none!important}
+.appHeader #navToggle span{display:none!important}
+.appHeader #navToggle[aria-expanded="true"]{background:#eaf2ff!important;border-color:#9bbdf0!important;color:#174ea6!important}
+#mainNavigation{top:calc(100% + 8px)!important;right:12px!important;left:auto!important;z-index:2300!important}
+#mainNavigation .navRowIcon{width:17px!important;height:17px!important;flex:0 0 17px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#mainNavigation #drawerProgress,#mainNavigation #drawerReports{gap:10px!important}
+#quickDock{display:none!important}
+
+@media(min-width:1200px){
+  #quizPanel>.prompt{min-height:clamp(255px,31vh,410px)!important;padding:clamp(28px,3.2vw,54px)!important}
+  #quizPanel>.prompt .quizLayerKanji{font-size:clamp(82px,7vw,124px)!important}
+  #quizPanel>.prompt .quizLayerKana{font-size:clamp(38px,3.3vw,58px)!important}
+  #quizPanel>.prompt .quizLayerRomaji{font-size:clamp(28px,2.4vw,41px)!important}
+}
+@media(min-width:701px) and (max-width:1199px){
+  .appHeader .navTop{min-height:62px!important;padding:9px 13px!important;gap:12px!important}
+  .appHeader .headerActions{gap:7px!important}
+  .appHeader .headerAction,.appHeader #navToggle{width:42px!important;height:42px!important;min-width:42px!important;flex-basis:42px!important}
+  #quizPanel>.prompt{min-height:clamp(220px,30vh,330px)!important}
+  #quizPanel>.prompt .quizLayerKanji{font-size:clamp(66px,7.4vw,94px)!important}
+  #quizPanel>.prompt .quizLayerKana{font-size:clamp(33px,3.8vw,44px)!important}
+  #quizPanel>.prompt .quizLayerRomaji{font-size:clamp(24px,2.6vw,31px)!important}
+}
+@media(max-width:700px){
+  .appHeader .navTop{min-height:56px!important;padding:8px 9px!important;gap:6px!important}
+  .appHeader .brandBlock .brand{font-size:clamp(10px,3vw,12px)!important;letter-spacing:-.015em!important}
+  .appHeader .brandBlock .sub{display:none!important}
+  .appHeader .headerActions{gap:5px!important}
+  .appHeader .headerAction,.appHeader #navToggle{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;flex-basis:36px!important;border-radius:10px!important}
+  .appHeader .headerAction svg,.appHeader #navToggle svg{width:18px!important;height:18px!important}
+  #mainNavigation{top:calc(100% + 7px)!important;right:7px!important;width:min(340px,calc(100vw - 20px))!important}
+  #quizPanel>.prompt{min-height:180px!important;padding:18px 10px!important}
+  #quizPanel>.prompt .quizLayerKanji{font-size:clamp(42px,11vw,60px)!important}
+  #quizPanel>.prompt .quizLayerKana{font-size:clamp(25px,6.8vw,36px)!important}
+  #quizPanel>.prompt .quizLayerRomaji{font-size:clamp(18px,5vw,25px)!important}
+}
+@media(max-width:370px){
+  .appHeader .navTop{padding:7px 7px!important;gap:4px!important}
+  .appHeader .brandBlock .brand{font-size:10px!important}
+  .appHeader .headerActions{gap:4px!important}
+  .appHeader .headerAction,.appHeader #navToggle{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;flex-basis:32px!important;border-radius:9px!important}
+  .appHeader .headerAction svg,.appHeader #navToggle svg{width:16px!important;height:16px!important}
+  #quizPanel>.prompt .quizLayerKanji{font-size:40px!important}
+  #quizPanel>.prompt .quizLayerKana{font-size:23px!important}
+  #quizPanel>.prompt .quizLayerRomaji{font-size:17px!important}
+}
+</style>
+
 </head>
 <body>
 <main>
 <header class="appHeader">
 <div class="navTop">
 <div class="brandBlock"><div class="brand">日本語 · N5 TRAINER</div><div class="sub">Vocabulary · practice · progress</div></div>
-<button aria-controls="mainNavigation" aria-expanded="false" aria-label="Open navigation menu" class="navToggle" id="navToggle" type="button">⌃ <span>Navigation</span></button>
+<div class="headerActions" aria-label="Quick actions">
+<button aria-label="Start quiz" class="headerAction headerStart" id="quickStartFab" title="Start quiz" type="button">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor" stroke="none"/></svg>
+</button>
+<button aria-label="Open overall progress" class="headerAction" id="quickQuizFab" title="Overall progress" type="button">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 3.5v17h17"/><path d="m6.5 15 4-4 3.2 2.8 5.8-7"/><path d="M15.8 6.8h3.7v3.7"/></svg>
+</button>
+<button aria-label="Open quiz reports" class="headerAction" id="quickKpiFab" title="Quiz reports" type="button">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4.5" width="12" height="17" rx="2"/><path d="M9 4.5V3.7A1.7 1.7 0 0 1 10.7 2h2.6A1.7 1.7 0 0 1 15 3.7v.8M9.5 10h5M9.5 14h5M9.5 18h3"/></svg>
+</button>
+<button aria-controls="mainNavigation" aria-expanded="false" aria-label="Open sidebar navigation" class="navToggle" id="navToggle" title="Open sidebar navigation" type="button">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+</div>
 </div>
 <nav aria-label="Main navigation" class="mainNavigation" id="mainNavigation">
 <div class="navGroup"><span class="navLabel">STUDY</span>
@@ -1357,8 +1474,8 @@ main>#drawerShade.drawerShade.open,#drawerShade.open{display:block!important}
 <button class="navItem" id="similarDictionaryOpen" type="button">Similar words</button>
 </div>
 <div class="navGroup"><span class="navLabel">REPORTS &amp; DATA</span>
-<button class="navItem" id="drawerProgress" type="button">Overall progress</button>
-<button class="navItem" id="drawerReports" type="button">Quiz history</button>
+<button class="navItem" id="drawerProgress" type="button"><svg class="navRowIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 3.5v17h17"/><path d="m6.5 15 4-4 3.2 2.8 5.8-7M15.8 6.8h3.7v3.7"/></svg>Overall progress</button>
+<button class="navItem" id="drawerReports" type="button"><svg class="navRowIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4.5" width="12" height="17" rx="2"/><path d="M9 4.5V3.7A1.7 1.7 0 0 1 10.7 2h2.6A1.7 1.7 0 0 1 15 3.7v.8M9.5 10h5M9.5 14h5M9.5 18h3"/></svg>Quiz history</button>
 <button class="navItem" id="exportProgressBtn" type="button">Export <kbd>Ctrl E</kbd></button>
 <button class="navItem" id="importProgressBtn" type="button">Import <kbd>Ctrl I</kbd></button>
 </div>
@@ -1572,11 +1689,7 @@ main>#drawerShade.drawerShade.open,#drawerShade.open{display:block!important}
 </div>
 </div>
 </main>
-<div aria-label="Dashboard shortcuts" class="quickDock" id="quickDock">
-<button aria-label="Start quiz" class="quickFab startFab" id="quickStartFab" title="Start quiz" type="button">▶</button>
-<button aria-label="Open overall progress report" class="quickFab" id="quickQuizFab" title="Overall progress report" type="button">▥</button>
-<button aria-label="Open quiz history and reports dashboard" class="quickFab kpi" id="quickKpiFab" title="Quiz history &amp; reports" type="button">▤</button>
-</div>
+
 <script>
 /* Storage guard: browser preview/sandbox contexts can deny localStorage.
    Keep the trainer functional with an in-memory fallback instead of aborting startup. */
@@ -1751,7 +1864,7 @@ function start(){
 }
 function quizDisplayPrefs(scope='question'){const prefix=scope==='option'?'option':'question';return {word:document.getElementById(prefix+'ShowWord')?.checked!==false,hiragana:document.getElementById(prefix+'ShowHiragana')?.checked!==false,katakana:document.getElementById(prefix+'ShowKatakana')?.checked!==false,romaji:document.getElementById(prefix+'ShowRomaji')?.checked!==false,english:document.getElementById(prefix+'ShowEnglish')?.checked!==false}}
 function visibleKana(k,scope='question'){const p=quizDisplayPrefs(scope);let out=[];for(const part of String(k||'').split(' / ')){const hasH=[...part].some(c=>c>='\u3040'&&c<='\u309f'),hasK=[...part].some(c=>c>='\u30a0'&&c<='\u30ff');if((hasH&&p.hiragana)||(!hasH&&hasK&&p.katakana)||(!hasH&&!hasK&&(p.hiragana||p.katakana)))out.push(part)}return out.join(' / ')}
-function quizWordMarkup(w,scope='question'){const p=quizDisplayPrefs(scope),parts=[];if(p.word)parts.push(`<span class="jpChoiceWord">${esc(w.word)}</span>`);const k=visibleKana(w.kana,scope);if(k)parts.push(`<span class="jpChoiceReading">${esc(k)}</span>`);if(p.romaji&&w.romaji)parts.push(`<span class="jpChoiceReading">${esc(w.romaji)}</span>`);return `<span class="jpChoice">${parts.length?parts.join(''):'<span class="jpChoiceWord">•••</span>'}</span>`}
+function quizWordMarkup(w,scope='question'){const p=quizDisplayPrefs(scope),parts=[];if(p.word)parts.push(`<span class="jpChoiceWord quizLayerKanji">${esc(w.word)}</span>`);const k=visibleKana(w.kana,scope);if(k)parts.push(`<span class="jpChoiceReading quizLayerKana">${esc(k)}</span>`);if(p.romaji&&w.romaji)parts.push(`<span class="jpChoiceReading quizLayerRomaji">${esc(w.romaji)}</span>`);return `<span class="jpChoice">${parts.length?parts.join(''):'<span class="jpChoiceWord quizLayerKanji">•••</span>'}</span>`}
 function quizMeaningMarkup(w,scope='question'){return quizDisplayPrefs(scope).english?esc(w.meaning):'•••'}
 function showQuestion(){
  selected=-1;answered=false;questionStartedAt=performance.now();questionIdleMs=0;questionIdleStartedAt=0;lastActivityAt=performance.now();idleDetected=false;updateAttentionStatus(false);updateTimerReadout();
